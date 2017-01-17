@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3D旋转</title>
+    <style type="text/css">
+        body{
+            -webkit-perspective:800px;
+            -webkit-perspective-origin:50% -90%;
+        }
+        #container{
+            width: 125px;
+            height: 125px;
+            margin: 200px auto;
+            background: red;
+            -webkit-transform-style:preserve-3d;
+            -webkit-transition:all 1s linear;
+
+        }
+        #container img{
+            width: 125px;
+            height: 125px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+
+    </div>
+    <script type="text/javascript">
+        var oContainer=document.getElementById('container');
+        var html='';
+        var index=1;
+        for(var i=0;i<9;i++){
+            html+='<img src="img/'+ (i+1) +'.jpg" style="-webkit-transform:rotateY('+40*i+'deg) translateZ(200px)">';
+        }
+        oContainer.innerHTML=html;
+        oContainer.addEventListener('click',function(){
+            this.style.WebkitTransform = 'rotateY('+40*index+'deg)';
+            index++;
+        })
+    </script>
+</body>
+</html>
